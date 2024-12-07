@@ -15,6 +15,14 @@ class Dashboard extends StatelessWidget {
       'title': 'Baked Salmon Asparagus',
       'image': 'images/baked salmon.jpg',
     },
+    {
+      'title': 'Zucchini Noodles with Pesto',
+      'image': 'images/zucchini.jpg',
+    },
+    {
+      'title': 'Yogurt Parfait with Bananas, Almonds, and Dried Strawberries',
+      'image': 'images/parfaits.jpg',
+    },
   ];
 
   @override
@@ -30,10 +38,11 @@ class Dashboard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Welcome Section
               const Row(
                 children: [
                   CircleAvatar(
-                    backgroundImage: AssetImage('images/profile.jpg'), // Foto profil
+                    backgroundImage: AssetImage('images/profile.jpg'), // Profile picture
                     radius: 30,
                   ),
                   SizedBox(width: 10),
@@ -50,6 +59,7 @@ class Dashboard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20),
+              // Search Bar
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Search',
@@ -60,6 +70,7 @@ class Dashboard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
+              // Today's Recipe Picks
               const Text(
                 "Today's Recipe Picks",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -105,6 +116,80 @@ class Dashboard extends StatelessWidget {
                       ),
                     );
                   },
+                ),
+              ),
+              const SizedBox(height: 20),
+              // Explore New Dishes Section
+              const Text(
+                "Explore New Healthy Dishes",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
+              // Zucchini Noodles with Pesto Recipe
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => RecipeDetails(
+                        title: 'Zucchini Noodles with Pesto',
+                        image: 'images/zucchini.jpg',
+                      ),
+                    ),
+                  );
+                },
+                child: Container(
+                  height: 150,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: const DecorationImage(
+                      image: AssetImage('images/zucchini.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    color: Colors.black54,
+                    child: const Text(
+                      'Zucchini Noodles with Pesto',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              // Yogurt Parfait with Bananas, Almonds, and Dried Strawberries Recipe
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => RecipeDetails(
+                        title: 'Yogurt Parfait with Bananas, Almonds, and Dried Strawberries',
+                        image: 'images/parfaits.jpg',
+                      ),
+                    ),
+                  );
+                },
+                child: Container(
+                  height: 150,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: const DecorationImage(
+                      image: AssetImage('images/parfaits.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    color: Colors.black54,
+                    child: const Text(
+                      'Yogurt Parfait with Bananas, Almonds, and Dried Strawberries',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
                 ),
               ),
             ],

@@ -4,15 +4,13 @@ class RecipeDetails extends StatelessWidget {
   final String title;
   final String image;
 
-  RecipeDetails({
-    required this.title,
-    required this.image,
-  });
+  RecipeDetails({required this.title, required this.image});
 
-  final Map<String, dynamic> recipeData = {
+  // Map containing all recipe details
+  final Map<String, Map<String, dynamic>> recipeDetails = {
     'Chicken Avocado Salad': {
       'description':
-          'A healthy salad with grilled chicken and fresh avocado, perfect for your healthy meal.',
+          'A healthy salad with grilled chicken and fresh avocado, perfect for a nutritious meal.',
       'ingredients': [
         '1 grilled chicken breast',
         '1 avocado, diced',
@@ -31,48 +29,91 @@ class RecipeDetails extends StatelessWidget {
     },
     'Sweet Potato and Black Bean Tacos': {
       'description':
-          'Delicious tacos featuring roasted sweet potatoes and seasoned black beans, a vegetarian delight.',
+          'A flavorful taco recipe filled with sweet potatoes, black beans, and delicious spices.',
       'ingredients': [
-        '2 medium sweet potatoes, diced',
-        '1 can black beans, drained and rinsed',
+        '2 medium sweet potatoes, peeled and diced',
+        '1 cup black beans, cooked',
+        '8 small taco shells',
+        '1/2 cup salsa',
+        '1/4 cup chopped cilantro',
         '1 tsp cumin',
         '1 tsp smoked paprika',
-        '1/4 cup chopped cilantro',
-        'Taco shells',
         'Salt and pepper to taste',
+        '2 tbsp olive oil',
       ],
       'instructions': [
-        'Preheat the oven to 400°F (200°C).',
-        'Toss the sweet potatoes with olive oil, cumin, paprika, salt, and pepper. Roast for 20 minutes.',
-        'Heat the black beans in a skillet with a pinch of salt and pepper.',
-        'Fill taco shells with roasted sweet potatoes, black beans, and top with cilantro.',
-        'Serve warm with your favorite toppings.',
+        'Preheat oven to 200°C (400°F).',
+        'Toss the diced sweet potatoes with olive oil, cumin, paprika, salt, and pepper.',
+        'Roast in the oven for 20-25 minutes until tender.',
+        'Warm the taco shells in a skillet or oven.',
+        'Fill each taco shell with roasted sweet potatoes, black beans, salsa, and cilantro.',
+        'Serve immediately.',
       ],
     },
     'Baked Salmon Asparagus': {
       'description':
-          'A light and flavorful dish of salmon baked alongside tender asparagus.',
+          'A simple yet delicious dish with baked salmon and fresh asparagus.',
       'ingredients': [
         '2 salmon fillets',
         '1 bunch asparagus, trimmed',
         '2 tbsp olive oil',
-        '1 lemon, sliced',
+        '1 tbsp lemon juice',
+        '2 garlic cloves, minced',
         'Salt and pepper to taste',
       ],
       'instructions': [
-        'Preheat the oven to 375°F (190°C).',
+        'Preheat oven to 200°C (400°F).',
         'Place salmon fillets and asparagus on a baking sheet.',
-        'Drizzle with olive oil, and season with salt and pepper.',
-        'Top the salmon with lemon slices.',
+        'Drizzle with olive oil and lemon juice.',
+        'Sprinkle minced garlic, salt, and pepper over the top.',
         'Bake for 12-15 minutes until salmon is cooked through and asparagus is tender.',
+        'Serve warm.',
+      ],
+    },
+    'Zucchini Noodles with Pesto': {
+      'description':
+          'A low-carb alternative to pasta made with zucchini noodles and fresh pesto sauce.',
+      'ingredients': [
+        '2 large zucchinis, spiralized',
+        '1/2 cup basil pesto',
+        '1/4 cup cherry tomatoes, halved',
+        '2 tbsp olive oil',
+        'Salt and pepper to taste',
+        'Optional: Parmesan cheese for garnish',
+      ],
+      'instructions': [
+        'Heat olive oil in a skillet over medium heat.',
+        'Add spiralized zucchini and sauté for 2-3 minutes until slightly tender.',
+        'Remove from heat and toss with basil pesto.',
+        'Top with cherry tomatoes and Parmesan cheese if desired.',
+        'Serve immediately.',
+      ],
+    },
+    'Yogurt Parfait with Bananas, Almonds, and Dried Strawberries': {
+      'description':
+          'A refreshing and healthy yogurt parfait made with layers of yogurt, bananas, almonds, and dried strawberries.',
+      'ingredients': [
+        '2 cups plain Greek yogurt',
+        '1 banana, sliced',
+        '1/4 cup almonds, chopped',
+        '1/4 cup dried strawberries, chopped',
+        '1 tbsp honey (optional)',
+        '1/2 tsp vanilla extract',
+      ],
+      'instructions': [
+        'In a bowl, mix the Greek yogurt with honey and vanilla extract.',
+        'Layer the yogurt in a glass or jar, starting with a layer of yogurt.',
+        'Add a layer of sliced bananas, followed by chopped almonds and dried strawberries.',
+        'Repeat the layers until the glass is full.',
+        'Top with a drizzle of honey and a few more almonds and strawberries for garnish.',
+        'Serve immediately or refrigerate for later.',
       ],
     },
   };
 
   @override
   Widget build(BuildContext context) {
-    final recipe = recipeData[title];
-
+    final recipe = recipeDetails[title];
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -86,61 +127,39 @@ class RecipeDetails extends StatelessWidget {
             children: [
               // Recipe Image
               Center(
-                child: Container(
+                child: Image.asset(
+                  image,
                   height: 250,
                   width: 250,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(image),
-                      fit: BoxFit.cover,
-                    ),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
+                  fit: BoxFit.cover,
                 ),
               ),
               const SizedBox(height: 20),
-              // Recipe Title
+              // Description
               Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green,
-                ),
-              ),
-              const SizedBox(height: 10),
-              // Recipe Description
-              Text(
-                recipe['description'],
-                style: const TextStyle(fontSize: 16, color: Colors.black54),
+                recipe?['description'] ?? '',
+                style: const TextStyle(fontSize: 16),
               ),
               const SizedBox(height: 20),
+              // Ingredients
               const Text(
-                "Ingredients:",
+                'Ingredients:',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
-              // Ingredients List
-              for (String ingredient in recipe['ingredients'])
-                Text(
-                  "- $ingredient",
-                  style: const TextStyle(fontSize: 16),
-                ),
+              ...?recipe?['ingredients'].map<Widget>(
+                (ingredient) => Text('- $ingredient'),
+              ),
               const SizedBox(height: 20),
+              // Instructions
               const Text(
-                "Instructions:",
+                'Instructions:',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
-              // Instructions List
-              for (String instruction in recipe['instructions'])
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4.0),
-                  child: Text(
-                    instruction,
-                    style: const TextStyle(fontSize: 16),
-                  ),
-                ),
+              ...?recipe?['instructions'].map<Widget>(
+                (instruction) => Text('• $instruction'),
+              ),
             ],
           ),
         ),
