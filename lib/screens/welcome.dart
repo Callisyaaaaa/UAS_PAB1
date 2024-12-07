@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dashboard.dart'; // Mengimpor file dashboard.dart
 
 void main() {
   runApp(MyApp());
@@ -74,8 +75,11 @@ class WelcomeScreen extends StatelessWidget {
                   minimumSize: const Size(double.infinity, 50),
                 ),
                 onPressed: () {
-                  // Aksi ketika tombol ditekan
-                  print('Continue pressed');
+                  // Navigasi ke halaman Dashboard
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Dashboard()),
+                  );
                 },
                 child: const Text(
                   'Continue',

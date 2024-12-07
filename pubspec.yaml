@@ -17,3 +17,8 @@ flutter:
   assets:
     - images/cover.jpg
     - images/salad.jpg
+    - images/chicken salad.jpg
+    - images/tacos.jpg
+    - images/baked salmon.jpg
+    - images/zucchini.jpg
+    - images/profile.jpg
