@@ -30,17 +30,16 @@ class Dashboard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Welcome Section
-              Row(
+              const Row(
                 children: [
                   CircleAvatar(
                     backgroundImage: AssetImage('images/profile.jpg'), // Foto profil
                     radius: 30,
                   ),
-                  const SizedBox(width: 10),
+                  SizedBox(width: 10),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         'Hello, Selin Malik!',
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -51,7 +50,6 @@ class Dashboard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20),
-              // Search Bar
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Search',
@@ -62,7 +60,6 @@ class Dashboard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              // Today's Recipe Picks
               const Text(
                 "Today's Recipe Picks",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -108,45 +105,6 @@ class Dashboard extends StatelessWidget {
                       ),
                     );
                   },
-                ),
-              ),
-              const SizedBox(height: 20),
-              // Explore New Dishes
-              const Text(
-                "Explore New Healthy Dishes",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 10),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => RecipeDetails(
-                        title: 'Zucchini Noodles with Pesto',
-                        image: 'images/zucchini.jpg',
-                      ),
-                    ),
-                  );
-                },
-                child: Container(
-                  height: 150,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(
-                      image: AssetImage('images/zucchini.jpg'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  alignment: Alignment.bottomCenter,
-                  child: Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.black54,
-                    child: const Text(
-                      'Zucchini Noodles with Pesto',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
                 ),
               ),
             ],
