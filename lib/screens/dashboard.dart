@@ -16,12 +16,12 @@ class Dashboard extends StatelessWidget {
       'image': 'images/baked salmon.jpg',
     },
     {
-      'title': 'Zucchini Noodles with Pesto',
-      'image': 'images/zucchini.jpg',
+      'title': 'Avocado Toast with Poached Egg',
+      'image': 'images/toast.jpg',
     },
     {
-      'title': 'Yogurt Parfait with Bananas, Almonds, and Dried Strawberries',
-      'image': 'images/parfaits.jpg',
+      'title': 'Baked Cod with Lemon and Herbs',
+      'image': 'images/cod.jpg',
     },
   ];
 

@@ -89,24 +89,42 @@ class RecipeDetails extends StatelessWidget {
         'Serve immediately.',
       ],
     },
-    'Yogurt Parfait with Bananas, Almonds, and Dried Strawberries': {
+    'Avocado Toast with Poached Egg': {
       'description':
-          'A refreshing and healthy yogurt parfait made with layers of yogurt, bananas, almonds, and dried strawberries.',
+          'A classic breakfast option with creamy avocado spread and a perfectly poached egg.',
       'ingredients': [
-        '2 cups plain Greek yogurt',
-        '1 banana, sliced',
-        '1/4 cup almonds, chopped',
-        '1/4 cup dried strawberries, chopped',
-        '1 tbsp honey (optional)',
-        '1/2 tsp vanilla extract',
+        '2 slices whole-grain bread, toasted',
+        '1 avocado, mashed',
+        '2 eggs, poached',
+        'Salt and pepper to taste',
+        'Optional: chili flakes and lemon juice for garnish',
       ],
       'instructions': [
-        'In a bowl, mix the Greek yogurt with honey and vanilla extract.',
-        'Layer the yogurt in a glass or jar, starting with a layer of yogurt.',
-        'Add a layer of sliced bananas, followed by chopped almonds and dried strawberries.',
-        'Repeat the layers until the glass is full.',
-        'Top with a drizzle of honey and a few more almonds and strawberries for garnish.',
-        'Serve immediately or refrigerate for later.',
+        'Toast the bread slices until golden and crisp.',
+        'Spread mashed avocado evenly on each toast.',
+        'Top with a poached egg on each slice.',
+        'Season with salt, pepper, and optional chili flakes or lemon juice.',
+        'Serve immediately.',
+      ],
+    },
+    'Baked Cod with Lemon and Herbs': {
+      'description':
+          'A light and flavorful dish featuring baked cod seasoned with lemon and fresh herbs.',
+      'ingredients': [
+        '2 cod fillets',
+        '1 lemon, sliced',
+        '2 tbsp olive oil',
+        '1 tsp garlic powder',
+        '1 tsp dried parsley',
+        'Salt and pepper to taste',
+      ],
+      'instructions': [
+        'Preheat oven to 200°C (400°F).',
+        'Place cod fillets on a baking sheet lined with parchment paper.',
+        'Drizzle olive oil over the fillets and season with garlic powder, parsley, salt, and pepper.',
+        'Top each fillet with lemon slices.',
+        'Bake for 15-20 minutes until the fish is flaky and cooked through.',
+        'Serve immediately with a side of vegetables or rice.',
       ],
     },
   };
