@@ -1,4 +1,4 @@
-import 'package:fitdine/screens/welcome.dart';  // Import WelcomeScreen
+import 'package:fitdine/screens/welcome.dart';  
 import 'package:flutter/material.dart';
 
 void main() {
@@ -86,7 +86,7 @@ class SignInScreen extends StatelessWidget {
                   const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
-                      // Arahkan ke halaman WelcomeScreen setelah tombol Sign In ditekan
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => WelcomeScreen()),
@@ -102,7 +102,7 @@ class SignInScreen extends StatelessWidget {
                     ),
                     child: const Text('Sign In'),
                   ),
-                  const SizedBox(height: 10), // Adjust space here
+                  const SizedBox(height: 10), 
                   const Text(
                     "Don't have an account? Sign Up here",
                     style: TextStyle(

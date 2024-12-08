@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/sign_in.dart';  // Mengimpor SignInScreen
+import 'screens/sign_in.dart';  
 
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SignInScreen(), // Menetapkan SignInScreen sebagai layar utama
+      home: SignInScreen(), 
     );
   }
 }

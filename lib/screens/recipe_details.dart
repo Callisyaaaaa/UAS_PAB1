@@ -6,7 +6,6 @@ class RecipeDetails extends StatelessWidget {
 
   RecipeDetails({required this.title, required this.image});
 
-  // Map containing all recipe details
   final Map<String, Map<String, dynamic>> recipeDetails = {
     'Chicken Avocado Salad': {
       'description':

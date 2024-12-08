@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dashboard.dart'; // Mengimpor file dashboard.dart
+import 'dashboard.dart'; 
 
 void main() {
   runApp(MyApp());
@@ -23,23 +23,21 @@ class WelcomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Gambar salad di tengah atas dengan ukuran lebih kecil
             Padding(
               padding: const EdgeInsets.only(top: 20.0),
               child: Container(
-                height: 150, // Tinggi gambar
-                width: 150, // Lebar gambar
+                height: 150, 
+                width: 150, 
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('images/salad.jpg'), // Path gambar salad
+                    image: AssetImage('images/salad.jpg'), 
                     fit: BoxFit.cover,
                   ),
-                  shape: BoxShape.circle, // Membuat gambar berbentuk lingkaran
+                  shape: BoxShape.circle, 
                 ),
               ),
             ),
-            const SizedBox(height: 20),
-            // Judul utama
+            const SizedBox(height: 30),
             const Text(
               'Welcome to FitDine!',
               style: TextStyle(
@@ -49,22 +47,21 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            // Deskripsi di bawah judul
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30),
+            const const Padding(
+              padding: sets.symmetric(horizontal: 30),
               child: Text(
                 'Discover a world of healthy food that will help you live your best life.',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
+                style: const TextStyle(
+                  fontSize: 16, fontStyle: FontStyle.italic,
                   color: Colors.black54,
                 ),
               ),
             ),
-            const Spacer(), // Memastikan tombol berada di bagian bawah
-            // Tombol Continue
+            const Spacer(),
+  
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
@@ -72,10 +69,9 @@ class WelcomeScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  minimumSize: const Size(double.infinity, 50),
+                  minimumSize: const Size(double.infinity),
                 ),
                 onPressed: () {
-                  // Navigasi ke halaman Dashboard
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => Dashboard()),

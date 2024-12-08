@@ -8,20 +8,20 @@ class SignUpScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Background Image
+
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('images/cover.jpg'), // Ganti sesuai path file gambar
+                image: AssetImage('images/cover.jpg'), 
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          // Overlay untuk Form
+
           Container(
             color: Colors.black.withOpacity(0.5),
           ),
-          // Content
+
           Center(
             child: SingleChildScrollView(
               child: Padding(
@@ -30,7 +30,6 @@ class SignUpScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // Logo atau Title
                     const Text(
                       'FitDine!',
                       style: TextStyle(
@@ -40,7 +39,6 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 24),
-                    // Input Fields
                     TextField(
                       decoration: InputDecoration(
                         labelText: 'Full Name',
@@ -86,7 +84,6 @@ class SignUpScreen extends StatelessWidget {
                       obscureText: true,
                     ),
                     const SizedBox(height: 24),
-                    // Sign Up Button
                     ElevatedButton(
                       onPressed: () {
                         Navigator.pushNamed(context, '/welcome');
@@ -107,7 +104,6 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    // Bottom Navigation to Sign In
                     TextButton(
                       onPressed: () {
                         Navigator.pop(context);
