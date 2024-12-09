@@ -29,230 +29,237 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          // Header Section
-          Container(
-            padding: const EdgeInsets.all(16.0),
-            decoration: const BoxDecoration(
-              color: Colors.green,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20),
+      body: SafeArea(
+        child: Column(
+          children: [
+            // Header Section dengan Search
+            Container(
+              padding: const EdgeInsets.all(16.0),
+              decoration: const BoxDecoration(
+                color: Colors.green,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
               ),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Hello, Selin Malik!',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+              child: Column(
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Hello, Selin Malik!',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          const Text(
+                            'Discover, Cook, and Enjoy Healthy Meals!',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      'Discover, Cook, and Enjoy Healthy Meals!',
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    // Search Field
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Search',
-                          prefixIcon: const Icon(Icons.search),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProfilePage(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: Colors.white,
+                              width: 3,
+                            ),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Colors.black26,
+                                blurRadius: 10,
+                                offset: Offset(0, 5),
+                              ),
+                            ],
+                          ),
+                          child: const CircleAvatar(
+                            backgroundImage: AssetImage('images/profile.jpg'),
+                            radius: 30,
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProfilePage(),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Search',
+                      prefixIcon: const Icon(Icons.search),
+                      filled: true,
+                      fillColor: Colors.white,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(color: Colors.black, width: 1),
                       ),
-                    );
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: Colors.white, // Lingkaran putih
-                        width: 3,
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(color: Colors.black, width: 2),
                       ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black26, 
-                          blurRadius: 10,
-                          offset: Offset(0, 5),
-                        ),
-                      ],
-                    ),
-                    child: const CircleAvatar(
-                      backgroundImage: AssetImage('images/profile.jpg'),
-                      radius: 30,
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 20), 
-        
-          Expanded(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      "Today's Recipe Picks",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+            const SizedBox(height: 10), 
+            Expanded(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Today's Recipe Picks",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 10),
-                    SizedBox(
-                      height: 200,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: recipes.length,
-                        itemBuilder: (context, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => RecipeDetails(
-                                    title: recipes[index]['title']!,
-                                    image: recipes[index]['image']!,
+                      const SizedBox(height: 10),
+                      SizedBox(
+                        height: 200,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: recipes.length,
+                          itemBuilder: (context, index) {
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => RecipeDetails(
+                                      title: recipes[index]['title']!,
+                                      image: recipes[index]['image']!,
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.only(right: 10),
+                                width: 150,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                    image: AssetImage(recipes[index]['image']!),
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
-                              );
-                            },
-                            child: Container(
-                              margin: const EdgeInsets.only(right: 10),
-                              width: 150,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                image: DecorationImage(
-                                  image: AssetImage(recipes[index]['image']!),
-                                  fit: BoxFit.cover,
+                                alignment: Alignment.bottomCenter,
+                                child: Container(
+                                  padding: const EdgeInsets.all(8),
+                                  color: Colors.black54,
+                                  child: Text(
+                                    recipes[index]['title']!,
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
                                 ),
                               ),
-                              alignment: Alignment.bottomCenter,
-                              child: Container(
-                                padding: const EdgeInsets.all(8),
-                                color: Colors.black54,
-                                child: Text(
-                                  recipes[index]['title']!,
-                                  style: const TextStyle(color: Colors.white),
-                                ),
+                            );
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      const Text(
+                        "Explore New Healthy Dishes",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => RecipeDetails(
+                                title: 'Zucchini Noodles with Pesto',
+                                image: 'images/zucchini.jpg',
                               ),
                             ),
                           );
                         },
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    // Explore New Dishes Section
-                    const Text(
-                      "Explore New Healthy Dishes",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => RecipeDetails(
-                              title: 'Zucchini Noodles with Pesto',
-                              image: 'images/zucchini.jpg',
+                        child: Container(
+                          height: 150,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: const DecorationImage(
+                              image: AssetImage('images/zucchini.jpg'),
+                              fit: BoxFit.cover,
                             ),
                           ),
-                        );
-                      },
-                      child: Container(
-                        height: 150,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: const DecorationImage(
-                            image: AssetImage('images/zucchini.jpg'),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        alignment: Alignment.bottomCenter,
-                        child: Container(
-                          padding: const EdgeInsets.all(8),
-                          color: Colors.black54,
-                          child: const Text(
-                            'Zucchini Noodles with Pesto',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => RecipeDetails(
-                              title: 'Yogurt Parfait with Bananas, Almonds, and Dried Strawberries',
-                              image: 'images/parfaits.jpg',
+                          alignment: Alignment.bottomCenter,
+                          child: Container(
+                            padding: const EdgeInsets.all(8),
+                            color: Colors.black54,
+                            child: const Text(
+                              'Zucchini Noodles with Pesto',
+                              style: TextStyle(color: Colors.white),
                             ),
                           ),
-                        );
-                      },
-                      child: Container(
-                        height: 150,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: const DecorationImage(
-                            image: AssetImage('images/parfaits.jpg'),
-                            fit: BoxFit.cover,
-                          ),
                         ),
-                        alignment: Alignment.bottomCenter,
+                      ),
+                      const SizedBox(height: 20),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => RecipeDetails(
+                                title: 'Yogurt Parfait with Bananas, Almonds, and Dried Strawberries',
+                                image: 'images/parfaits.jpg',
+                              ),
+                            ),
+                          );
+                        },
                         child: Container(
-                          padding: const EdgeInsets.all(8),
-                          color: Colors.black54,
-                          child: const Text(
-                            'Yogurt Parfait with Bananas, Almonds, and Dried Strawberries',
-                            style: TextStyle(color: Colors.white),
+                          height: 150,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: const DecorationImage(
+                              image: AssetImage('images/parfaits.jpg'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          alignment: Alignment.bottomCenter,
+                          child: Container(
+                            padding: const EdgeInsets.all(8),
+                            color: Colors.black54,
+                            child: const Text(
+                              'Yogurt Parfait with Bananas, Almonds, and Dried Strawberries',
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

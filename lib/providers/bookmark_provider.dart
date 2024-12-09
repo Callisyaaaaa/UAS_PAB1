@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BookmarkProvider with ChangeNotifier {
-  List<String> _bookmarkedRecipes = [];
+  final List<String> _bookmarkedRecipes = [];
 
   List<String> get bookmarkedRecipes => _bookmarkedRecipes;
 

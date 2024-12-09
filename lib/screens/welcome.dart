@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dashboard.dart'; 
+import 'dashboard.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,14 +26,14 @@ class WelcomeScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 20.0),
               child: Container(
-                height: 150, 
-                width: 150, 
+                height: 150,
+                width: 150,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('images/salad.jpg'), 
+                    image: AssetImage('images/salad.jpg'),
                     fit: BoxFit.cover,
                   ),
-                  shape: BoxShape.circle, 
+                  shape: BoxShape.circle,
                 ),
               ),
             ),
@@ -47,19 +47,19 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            const const Padding(
-              padding: sets.symmetric(horizontal: 30),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
               child: Text(
                 'Discover a world of healthy food that will help you live your best life.',
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 16, fontStyle: FontStyle.italic,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontStyle: FontStyle.italic,
                   color: Colors.black54,
                 ),
               ),
             ),
             const Spacer(),
-  
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: ElevatedButton(
@@ -69,7 +69,7 @@ class WelcomeScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  minimumSize: const Size(double.infinity),
+                  minimumSize: const Size(double.infinity, 50),
                 ),
                 onPressed: () {
                   Navigator.push(
